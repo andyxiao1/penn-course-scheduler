@@ -1,7 +1,8 @@
 # Penn Course Schedular
-# CIS 197: JavaScript Final Project
 
+CIS 197: JavaScript Final Project  
 Currently in progress  
-Idea is a webapp that allows users to type in the courses they want to take and return all possible schedules with those classes
+Idea: is a webapp that allows users to type in the courses they want to take and return all possible schedules with those classes  
+Technologies: React, Node/Express
 
 
