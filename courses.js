@@ -29,9 +29,12 @@ const courseRequest = async course => {
       'activity',
       'course_department',
       'course_number',
-      'meetings'
+      'meetings',
+      'is_cancelled'
     ]);
-    course.activity === 'LEC' ? lec.push(course) : rec.push(course);
+    if (!course.is_cancelled) {
+      course.activity === 'LEC' ? lec.push(course) : rec.push(course);
+    }
   });
   // if no recitation only send lecture
   if (lec.length === 0) {

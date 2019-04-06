@@ -4,6 +4,7 @@ const getAllSchedules = require('./schedules.js');
 const app = express();
 
 // format query string as http://localhost:3000/schedule?classes[]=cis121&classes[]=cis262&classes[]=eas203&classes[]=econ002
+// http://localhost:3000/schedule?classes[]=cis240&classes[]=cis320&classes[]=stat430&classes[]=ipd509
 app.get('/schedule', async (req, res, next) => {
   try {
     const courses = await getAllCourses(req.query.classes);
