@@ -1,7 +1,6 @@
 const _ = require('lodash');
 
-// Try to make more efficient, send 10 at a time?
-// what happens when no classes
+// BFS get all schedules
 const getAllSchedulesBFS = courses => {
   let schedules = courses[0].map(elt => [elt]);
   for (let i = 1; i < courses.length; i++) {
@@ -22,7 +21,8 @@ const getAllSchedulesBFS = courses => {
 };
 
 // breaks: http://localhost:3000/schedule?classes[]=cis120&classes[]=econ001&classes[]=math240&classes[]=cis160
-
+// DFS get all schedules
+// still breaks on inputs, TODO: make it so we send 100 classes each time and only send more on subsequent requests
 const getAllSchedules = courses => {
   let schedules = [];
   courses[0].forEach(c => {
