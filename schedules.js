@@ -1,7 +1,8 @@
 const _ = require('lodash');
 
 // Try to make more efficient, send 10 at a time?
-const getAllSchedules = courses => {
+// what happens when no classes
+const getAllSchedulesBFS = courses => {
   let schedules = courses[0].map(elt => [elt]);
   for (let i = 1; i < courses.length; i++) {
     const newSchedules = [];
@@ -18,6 +19,33 @@ const getAllSchedules = courses => {
     schedules = newSchedules;
   }
   return schedules;
+};
+
+// breaks: http://localhost:3000/schedule?classes[]=cis120&classes[]=econ001&classes[]=math240&classes[]=cis160
+
+const getAllSchedules = courses => {
+  let schedules = [];
+  courses[0].forEach(c => {
+    schedules = schedules.concat(visitCourse([c], courses, 1));
+  });
+  return schedules;
+};
+
+const visitCourse = (schedule, courses, index) => {
+  if (index === courses.length) {
+    return [schedule];
+  }
+  let allSchedules = [];
+  courses[index].forEach(c => {
+    if (isValidSchedule(schedule, c)) {
+      const newSchedule = schedule.slice();
+      newSchedule.push(c);
+      allSchedules = allSchedules.concat(
+        visitCourse(newSchedule, courses, index + 1)
+      );
+    }
+  });
+  return allSchedules;
 };
 
 const isValidSchedule = (schedule, course) => {
