@@ -12,6 +12,7 @@ app.get('/schedule', async (req, res, next) => {
     const output = printSchedules(schedules);
     res.send(output);
   } catch (err) {
+    console.log(err);
     next(err);
   }
 });
@@ -27,7 +28,7 @@ const printSchedules = schedules => {
 const printSchedule = schedule => {
   let toReturn = '';
   schedule.forEach(elt => {
-    toReturn += elt.meetings[0].section_id + ' ';
+    toReturn += elt.id + ' ';
   });
   return toReturn;
 };
