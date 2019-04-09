@@ -20,32 +20,32 @@ const getAllSchedulesBFS = courses => {
   return schedules;
 };
 
-// breaks: http://localhost:3000/schedule?classes[]=cis120&classes[]=econ001&classes[]=math240&classes[]=cis160
+// NO longer breaks: http://localhost:3000/schedule?classes[]=cis120&classes[]=econ001&classes[]=math240&classes[]=cis160
 // DFS get all schedules
-// still breaks on inputs, TODO: make it so we send 100 classes each time and only send more on subsequent requests
+// Only sends first 200 schedules
 const getAllSchedules = courses => {
   let schedules = [];
   courses[0].forEach(c => {
-    schedules = schedules.concat(visitCourse([c], courses, 1));
+    visitCourse([c], courses, 1, schedules);
   });
   return schedules;
 };
 
-const visitCourse = (schedule, courses, index) => {
-  if (index === courses.length) {
-    return [schedule];
+const visitCourse = (currSched, courses, index, allSchedules) => {
+  if (allSchedules.length === 200) {
+    return;
   }
-  let allSchedules = [];
+  if (index === courses.length) {
+    allSchedules.push(currSched);
+    return;
+  }
   courses[index].forEach(c => {
-    if (isValidSchedule(schedule, c)) {
-      const newSchedule = schedule.slice();
+    if (isValidSchedule(currSched, c)) {
+      const newSchedule = currSched.slice();
       newSchedule.push(c);
-      allSchedules = allSchedules.concat(
-        visitCourse(newSchedule, courses, index + 1)
-      );
+      visitCourse(newSchedule, courses, index + 1, allSchedules);
     }
   });
-  return allSchedules;
 };
 
 const isValidSchedule = (schedule, course) => {

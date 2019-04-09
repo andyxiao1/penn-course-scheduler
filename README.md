@@ -5,4 +5,4 @@
 
 **Technologies:** React, Node/Express
 
-**Current Progress:** Express server connected is mostly complete, but breaks on large cases (ie 100,000+ possible schedules). Planning on adding pagination, only sending roughly 100 schedules per request.
+**Current Progress:** Express server is complete. In cases of large number of possible schedules, it returns at most 200. Right now it returns schedules as a string for testing. Planning on adding pagination in MS3.
