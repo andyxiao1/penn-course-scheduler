@@ -3,10 +3,11 @@ const getAllCourses = require('./courses.js');
 const getAllSchedules = require('./schedules.js');
 const app = express();
 
-// format query string as http://localhost:3000/schedule?classes[]=cis121&classes[]=cis262&classes[]=eas203&classes[]=econ002
-// http://localhost:3000/schedule?classes[]=cis240&classes[]=cis320&classes[]=stat430&classes[]=ipd509
+// format query string as http://localhost:8080/schedule?classes[]=cis121&classes[]=cis262&classes[]=eas203&classes[]=econ002
+// http://localhost:8080/schedule?classes[]=cis240&classes[]=cis320&classes[]=stat430&classes[]=ipd509
 app.get('/schedule', async (req, res, next) => {
   try {
+    console.log(req.query.classes);
     const courses = await getAllCourses(req.query.classes);
     const schedules = getAllSchedules(courses);
     // const output = printSchedules(schedules);
@@ -37,6 +38,6 @@ app.use((err, req, res, next) => {
   res.send(err.message);
 });
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log('listening...');
 });

@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.getCourses = this.getCourses.bind(this);
+    this.state = { courses: '' };
+  }
+
+  getCourses() {
+    const courseList = this.state.courses.split(', ');
+    console.log(courseList);
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app-container">
+        <div className="app-header">Penn Course Scheduler</div>
+        <div className="form">
+          <form className="form" onSubmit={this.getCourses}>
+            <input
+              type="text"
+              name="courses"
+              placeholder="CIS197"
+              autocomplete="off"
+              onChange={courses => this.setState({ courses })}
+            />
+          </form>
+        </div>
       </div>
     );
   }
 }
-
-export default App;
