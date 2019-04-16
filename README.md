@@ -1,4 +1,4 @@
-# Penn Course Schedular
+# Penn Course Scheduler
 
 **CIS 197: JavaScript Final Project (Currently in progress)**
 
