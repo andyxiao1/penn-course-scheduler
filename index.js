@@ -9,8 +9,8 @@ app.get('/schedule', async (req, res, next) => {
   try {
     const courses = await getAllCourses(req.query.classes);
     const schedules = getAllSchedules(courses);
-    const output = printSchedules(schedules);
-    res.send(output);
+    // const output = printSchedules(schedules);
+    res.send(schedules);
   } catch (err) {
     console.log(err);
     next(err);

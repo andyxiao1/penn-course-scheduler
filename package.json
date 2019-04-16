@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andyxiao1/penn-course-schedular.git"
+    "url": "git+https://github.com/andyxiao1/penn-course-scheduler.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andyxiao1/penn-course-schedular/issues"
+    "url": "https://github.com/andyxiao1/penn-course-scheduler/issues"
   },
-  "homepage": "https://github.com/andyxiao1/penn-course-schedular#readme",
+  "homepage": "https://github.com/andyxiao1/penn-course-scheduler#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.4",
