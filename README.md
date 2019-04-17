@@ -8,6 +8,8 @@
 
 **Current Progress:** Express server is finished. It sends a max of 200 schedules. Frontend works and shows possible schedules, but UI for the schedule view needs to be cleaned up
 
+![Search Screen](/media/search-page.png)
+
 **TODO**  
 clean up UI  
 add back to course search page button  
