@@ -43,7 +43,9 @@ const processCourseData = c => {
     id: getId(meetings.section_id_normalized),
     start: meetings.start_time_24,
     end: meetings.end_time_24,
-    days: meetings.meeting_days
+    days: meetings.meeting_days,
+    startMin: meetings.start_minutes,
+    endMin: meetings.end_minutes
   };
 };
 

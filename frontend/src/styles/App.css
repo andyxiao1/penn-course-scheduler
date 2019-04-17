@@ -23,6 +23,15 @@
   margin-bottom: 10%;
 }
 
+.buttons {
+  flex: 1;
+  background-color: red;
+}
+
+.calendar {
+  flex: 3;
+}
+
 input[type='text'] {
   width: 50%;
   padding: 18px;
