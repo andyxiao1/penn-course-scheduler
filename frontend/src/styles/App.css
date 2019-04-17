@@ -6,6 +6,7 @@
   min-height: 100vh;
 }
 
+/* search screen style */
 .app-header {
   text-align: center;
   flex: 2;
@@ -23,15 +24,6 @@
   margin-bottom: 10%;
 }
 
-.buttons {
-  flex: 1;
-  background-color: red;
-}
-
-.calendar {
-  flex: 3;
-}
-
 input[type='text'] {
   width: 50%;
   padding: 18px;
@@ -45,4 +37,37 @@ input[type='text'] {
 
 input[type='text']:focus {
   outline: 0;
+}
+
+/* calendar switcher style */
+.button-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button {
+  background-color: #123072;
+  font-size: 175%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #cfcfc4;
+  border: none;
+  padding: 1%;
+  margin: 2%;
+  width: 18%;
+}
+
+.calendar {
+  max-height: 100px;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 30;
+  background-color: blue;
 }

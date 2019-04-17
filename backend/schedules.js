@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const MAX_SCHEDULES = 100;
 
 // BFS get all schedules
 const getAllSchedulesBFS = courses => {
@@ -32,7 +33,7 @@ const getAllSchedules = courses => {
 };
 
 const visitCourse = (currSched, courses, index, allSchedules) => {
-  if (allSchedules.length === 200) {
+  if (allSchedules.length === MAX_SCHEDULES) {
     return;
   }
   if (index === courses.length) {

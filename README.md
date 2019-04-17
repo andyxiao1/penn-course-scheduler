@@ -16,5 +16,5 @@ add back to course search page button
 account for bad inputs  
 account for no schedule cases  
 customization  
-change start and end time of schedule view depending on earliest and latest course times
+change start and end time of schedule view depending on earliest and latest course times  
 Add pagination for server

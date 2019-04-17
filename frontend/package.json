@@ -4,10 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.3.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
     "react-week-calendar": "^0.1.2"

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import Calendar from './components/Calendar';
 import api from './utils/api';
-import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
 export default class App extends Component {
   constructor(props) {
@@ -55,15 +53,10 @@ export default class App extends Component {
       return (
         <div className="app-container">
           <Calendar className="calendar" schedule={schedules[currSchedule]} />
-          <ButtonToolbar className="buttons">
-            <Button variant="dark" onClick={this.prevSchedule}>
-              Previous
-            </Button>
-            <Button variant="dark" onClick={this.nextSchedule}>
-              Next
-            </Button>
-          </ButtonToolbar>
-          ;
+          <div className="button-container">
+            <button onClick={this.prevSchedule}>{'< Previous'}</button>
+            <button onClick={this.nextSchedule}>{'Next >'}</button>
+          </div>
         </div>
       );
     } else {

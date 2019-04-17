@@ -7,7 +7,6 @@ const app = express();
 //   schedules: [[{id, start, end, days},...],[],...]
 // }
 
-// format query string as http://localhost:8080/schedule?classes[]=cis121&classes[]=cis262&classes[]=eas203&classes[]=econ002
 // http://localhost:8080/schedule?classes[]=cis240&classes[]=cis320&classes[]=stat430&classes[]=ipd509
 app.get('/schedule', async (req, res, next) => {
   try {
