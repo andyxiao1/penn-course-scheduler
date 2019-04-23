@@ -15,8 +15,8 @@
 **TODO**  
 Customization
 
-**LATER**
+**LATER**  
 Change start and end time of schedule view depending on earliest and latest course times  
-Add pagination for server
-Add more customization options
+Add pagination for server  
+Add more customization options  
 Add ability to delete/save schedules
