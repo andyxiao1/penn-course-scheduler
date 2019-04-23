@@ -13,6 +13,7 @@ export default class Calendar extends Component {
   };
 
   // schedule: [{id, start, end, days, startTime, endTime}, ...]
+  // gets all the course intervals for the schedule
   getIntervals() {
     const { schedule } = this.props;
     let intervals = [];
@@ -22,6 +23,8 @@ export default class Calendar extends Component {
     return intervals;
   }
 
+  // gets all the intervals (multiple days) for the given course
+  // MW course would have 2 intervals
   getCourseTimes(course) {
     const { id, start, end, days, startMin, endMin } = course;
     const intervals = [];
@@ -35,39 +38,42 @@ export default class Calendar extends Component {
     return intervals;
   }
 
+  // preprocess courses to determine earliest start time and latest end time
+  // not working child WeekCalendar won't resize
+  getStartEndTimes() {
+    const { schedule } = this.props;
+    let start = 24;
+    let startMin = 0;
+    let end = 0;
+    let endMin = 0;
+    schedule.forEach(course => {
+      if (course.start < start) {
+        start = course.start;
+        startMin = course.startMin;
+      }
+      if (course.end > end) {
+        end = course.end;
+        endMin = course.endMin;
+      }
+    });
+    return {
+      start: moment({ h: Math.floor(start), m: startMin }),
+      end: moment({ h: Math.floor(end), m: endMin })
+    };
+  }
+
   render() {
     return (
-      <div className="app-container">
-        <WeekCalendar
-          firstDay={moment(this.props.M)}
-          startTime={moment({ h: 8, m: 0 })}
-          endTime={moment({ h: 18, m: 0 })}
-          scaleUnit={30}
-          dayFormat={'dddd'}
-          numberOfDays={5}
-          modalComponent={() => <div />}
-          selectedIntervals={this.getIntervals()}
-        />
-      </div>
+      <WeekCalendar
+        firstDay={moment(this.props.M)}
+        startTime={moment({ h: 8, m: 0 })}
+        endTime={moment({ h: 19, m: 0 })}
+        scaleUnit={30}
+        dayFormat={'dddd'}
+        numberOfDays={5}
+        modalComponent={() => <div />}
+        selectedIntervals={this.getIntervals()}
+      />
     );
   }
 }
-
-// import React, { Component } from 'react';
-// import BigCalendar from 'react-big-calendar-like-google';
-// import moment from 'moment';
-// import 'react-big-calendar-like-google/lib/css/react-big-calendar.css';
-
-// BigCalendar.momentLocalizer(moment);
-
-// export default class Calendar extends Component {
-//   render() {
-//     return (
-//       <BigCalendar
-//         events={{}}
-//         startAccessor="startDate"
-//         endAccessor="endDate"
-//       />
-//     );
-//   }
-// }

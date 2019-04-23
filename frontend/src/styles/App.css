@@ -6,6 +6,19 @@
   min-height: 100vh;
 }
 
+.home-btn {
+  position: absolute;
+  background-color: transparent;
+  left: 1%;
+  top: 1%;
+  font-size: 175%;
+  color: #cfcfc4;
+  border: none;
+  padding: 1%;
+  height: 8%;
+  width: 5%;
+}
+
 /* search screen style */
 .app-header {
   text-align: center;
@@ -45,9 +58,10 @@ input[type='text']:focus {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
-button {
+.calendar-switch {
   background-color: #123072;
   font-size: 175%;
   display: flex;
@@ -56,12 +70,13 @@ button {
   color: #cfcfc4;
   border: none;
   padding: 1%;
-  margin: 2%;
+  margin: 0 1% 0 1%;
+  height: 20%;
   width: 18%;
 }
 
 .calendar {
-  max-height: 100px;
+  margin: 0 2% 0 2%;
 }
 
 .calendar-container {
