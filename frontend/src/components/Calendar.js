@@ -52,3 +52,22 @@ export default class Calendar extends Component {
     );
   }
 }
+
+// import React, { Component } from 'react';
+// import BigCalendar from 'react-big-calendar-like-google';
+// import moment from 'moment';
+// import 'react-big-calendar-like-google/lib/css/react-big-calendar.css';
+
+// BigCalendar.momentLocalizer(moment);
+
+// export default class Calendar extends Component {
+//   render() {
+//     return (
+//       <BigCalendar
+//         events={{}}
+//         startAccessor="startDate"
+//         endAccessor="endDate"
+//       />
+//     );
+//   }
+// }
