@@ -1,6 +1,7 @@
 const express = require('express');
-const getAllCourses = require('./courses.js');
-const getAllSchedules = require('./schedules.js');
+const getAllCourses = require('./utils/courses');
+const getAllSchedules = require('./utils/schedules');
+const customizeCourses = require('./utils/customization');
 const app = express();
 
 // schedules sent back as object: {
@@ -10,9 +11,13 @@ const app = express();
 // http://localhost:8080/schedule?classes[]=cis240&classes[]=cis320&classes[]=stat430&classes[]=ipd509
 app.get('/schedule', async (req, res, next) => {
   try {
-    const courses = await getAllCourses(req.query.classes);
-    const schedules = getAllSchedules(courses);
-    // const output = printSchedules(schedules);
+    const { classes, noEarlyClasses, noFridayClasses } = req.query;
+    const courses = await getAllCourses(classes);
+    const customCourses = customizeCourses(courses, {
+      noEarlyClasses,
+      noFridayClasses
+    });
+    const schedules = getAllSchedules(customCourses);
     res.send({ schedules });
   } catch (err) {
     console.log(err);
@@ -20,6 +25,7 @@ app.get('/schedule', async (req, res, next) => {
   }
 });
 
+// old printing for testing
 const printSchedules = schedules => {
   let toReturn = '';
   schedules.forEach((elt, index) => {

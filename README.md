@@ -6,7 +6,7 @@
 
 **Technologies:** React, Node/Express
 
-**Current Progress:** Express server is finished. It sends a max of 200 schedules. Frontend is finished and is fairly clean/minimal. Currently adding customization options.
+**Current Progress:** Express server is finished. It sends a max of 100 schedules. Frontend is finished and is fairly clean/minimal. Currently adding customization options.
 
 ![Search Screen](/media/home.png)
 

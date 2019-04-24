@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './styles/App.css';
-import Calendar from './components/Calendar';
-import api from './utils/api';
+import '../styles/App.css';
+import Calendar from './Calendar';
+import api from '../utils/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import Customization from './Customization';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,11 +13,15 @@ export default class App extends Component {
     this.prevSchedule = this.prevSchedule.bind(this);
     this.nextSchedule = this.nextSchedule.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.toggleTenAM = this.toggleTenAM.bind(this);
+    this.toggleFriday = this.toggleFriday.bind(this);
     this.state = {
       courses: '',
       schedules: [],
       currSchedule: 0,
-      view: 'home'
+      view: 'home',
+      noTenAM: false,
+      noFriday: false
     };
   }
 
@@ -27,7 +32,9 @@ export default class App extends Component {
       const classes = this.state.courses.split(', ');
       const scheduleData = await api.get('/', {
         params: {
-          classes
+          classes,
+          noEarlyClasses: this.state.noTenAM,
+          noFridayClasses: this.state.noFriday
         }
       });
       const { schedules } = scheduleData.data;
@@ -60,15 +67,31 @@ export default class App extends Component {
       view: 'home',
       schedules: [],
       currSchedule: 0,
-      courses: ''
+      courses: '',
+      noTenAM: false,
+      noFriday: false
     });
   }
 
+  toggleTenAM() {
+    this.setState({ noTenAM: !this.state.noTenAM });
+  }
+
+  toggleFriday() {
+    this.setState({ noFriday: !this.state.noFriday });
+  }
+
   render() {
-    const { schedules, currSchedule, view } = this.state;
+    const { schedules, currSchedule, view, noTenAM, noFriday } = this.state;
     if (view === 'home') {
       return (
         <div className="app-container">
+          <Customization
+            noTenAM={noTenAM}
+            noFriday={noFriday}
+            toggleTenAM={this.toggleTenAM}
+            toggleFriday={this.toggleFriday}
+          />
           <div className="app-header">Penn Course Scheduler</div>
           <div className="form">
             <form className="form" onSubmit={this.getCourses}>

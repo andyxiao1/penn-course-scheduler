@@ -9,6 +9,9 @@ const getAllCourses = async classes => {
   return courses;
 };
 
+// returns array where each elt represents a course
+// each course has an array of times
+// [[c1.lecs], [c1.recs], [c2.lecs]]
 const courseRequest = async course => {
   const data = await axios.get(
     `https://api.pennlabs.org/registrar/search?q=${course}`

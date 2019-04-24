@@ -84,5 +84,14 @@ input[type='text']:focus {
   justify-content: center;
   align-items: center;
   flex: 30;
-  background-color: blue;
+}
+
+.toggle {
+  background-color: transparent;
+  font-size: 100%;
+  color: #cfcfc4;
+  border: none;
+  padding: 1%;
+  margin: 10% 10% 10% 10%;
+  font-family: 'Josefin Sans', sans-serif;
 }
