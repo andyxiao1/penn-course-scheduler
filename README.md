@@ -16,6 +16,8 @@
 Add gulp  
 Add Webpack/babel  
 Deploy to heroku
+Env stuff?
+Browserfy?
 
 **Stuff to do later on**  
 Change start and end time of schedule view depending on earliest and latest course times  
