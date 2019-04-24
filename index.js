@@ -3,12 +3,13 @@ const getAllCourses = require('./utils/courses');
 const getAllSchedules = require('./utils/schedules');
 const customizeCourses = require('./utils/customization');
 const app = express();
-const PORT = process.env.NODE_ENV || 3001;
+const PORT = process.env.PORT || 3001; // NODE_ENV
+const path = require('path');
 
 // if (process.env.NODE_ENV === 'production') {
 //   app.use('/', express.static('client/build'));
 // }
-app.use('/', express.static('client/build'));
+app.use('/', express.static(path.join(__dirname, 'client/build')));
 
 // schedules sent back as object: {
 //   schedules: [[{id, start, end, days},...],[],...]
