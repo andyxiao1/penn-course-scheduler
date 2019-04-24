@@ -12,6 +12,11 @@
 
 ![Scheduler Screen](/media/schedule.png)
 
+**TODO**  
+Add gulp  
+Add Webpack/babel  
+Deploy to heroku
+
 **Stuff to do later on**  
 Change start and end time of schedule view depending on earliest and latest course times  
 Add pagination for server  
