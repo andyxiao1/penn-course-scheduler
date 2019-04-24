@@ -6,16 +6,13 @@
 
 **Technologies:** React, Node/Express
 
-**Current Progress:** Express server is finished. It sends a max of 100 schedules. Frontend is finished and is fairly clean/minimal. Currently adding customization options.
+**Current Progress:** Express server is finished. It sends a max of 100 schedules. Frontend is finished and is fairly clean/minimal. Currently,
 
 ![Search Screen](/media/home.png)
 
 ![Scheduler Screen](/media/schedule.png)
 
-**TODO**  
-Customization
-
-**LATER**  
+**Stuff to do later on**  
 Change start and end time of schedule view depending on earliest and latest course times  
 Add pagination for server  
 Add more customization options  
