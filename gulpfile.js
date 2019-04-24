@@ -14,10 +14,6 @@ gulp.task('eslint', function() {
     .src(FILES)
     .pipe(
       eslint({
-        env: {
-          node: true,
-          es6: true
-        },
         rules: {
           'brace-style': [2, '1tbs'],
           'keyword-spacing': 2,
@@ -32,20 +28,10 @@ gulp.task('eslint', function() {
           'quote-props': [2, 'as-needed'],
           quotes: [2, 'single', 'avoid-escape'],
           'space-before-blocks': 2,
-          'space-before-function-paren': 2,
           'space-infix-ops': 2,
           strict: 0
-        },
-        extends: 'eslint:recommended'
+        }
       })
     )
     .pipe(eslint.format());
 });
-
-// "eslint-config-airbnb": "^17.1.0",
-// "eslint-plugin-import": "^2.16.0",
-// "eslint-plugin-jsx-a11y": "^6.2.0",
-// "eslint-plugin-react": "^7.12.4",
-// "jsdom": "13.2.0",
-// "jsdom-global": "3.0.2",
-// "webpack-cli": "^3.2.1"
