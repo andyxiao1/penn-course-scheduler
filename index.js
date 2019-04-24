@@ -6,8 +6,9 @@ const app = express();
 const PORT = process.env.NODE_ENV || 3001;
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use('/', express.static('client/build'));
 }
+// app.use('/', express.static('client/build'));
 
 // schedules sent back as object: {
 //   schedules: [[{id, start, end, days},...],[],...]
