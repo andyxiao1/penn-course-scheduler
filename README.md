@@ -11,9 +11,3 @@
 ![Search Screen](/media/home.png)
 
 ![Scheduler Screen](/media/schedule.png)
-
-**Stuff to do later on**  
-Change start and end time of schedule view depending on earliest and latest course times  
-Add pagination for server  
-Add more customization options  
-Add ability to delete/save schedules
